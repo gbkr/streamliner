@@ -1,4 +1,5 @@
 require "streamliner/version"
+require "streamliner/counter"
 
 begin
   require 'pry'
