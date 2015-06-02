@@ -1,18 +1,17 @@
-module StreamLiner
+module Streamliner
   class Counter
 
-    attr_reader :cntl_name, :hit_count
+    attr_reader :controller, :counter
 
-    def initialize(cntl_name, hit_count)
-      @cntl_name = cntl_name
-      @hit_count = hit_count || {}
+    def initialize(controller, counter)
+      @controller = controller
+      @counter = counter || {}
     end
 
     def add
-      count = hit_count.fetch(cntl_name, 0)
-      count += 1
-      hit_count[cntl_name] = count
-      hit_count
+      count = (counter.fetch(controller, 0) + 1)
+      counter[controller] = count
+      counter
     end
   end
 end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-module StreamLiner
+module Streamliner
   describe Counter do
-    let(:counter) { StreamLiner::Counter }
+    let(:counter) { Streamliner::Counter }
     let(:params_hash_1) { "home" }
     let(:params_hash_2) { "session" }
 

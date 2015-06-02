@@ -1,5 +1,10 @@
-require "streamliner/version"
-require "streamliner/counter"
+require 'streamliner/version'
+require 'streamliner/counter'
+
+if defined?(Rails)
+  require 'streamliner/railtie'
+  require 'streamliner/controller_interceptor'
+end
 
 begin
   require 'pry'
