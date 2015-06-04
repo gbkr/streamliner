@@ -15,7 +15,7 @@ module Streamliner
       result = counter.new(params_hash_1, {}).add
       result = counter.new(params_hash_1, result).add
       result = counter.new(params_hash_2, result).add
-
+      result.delete(:start)
       expect(result).to eq({"home" => 2, "session" => 1})
     end
   end
