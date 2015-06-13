@@ -4,9 +4,13 @@ namespace :streamliner do
     Rails.application.eager_load!
     controller_list = ApplicationController.subclasses
 
-    controller_counter = Rails.cache.fetch(:controller_counter)
+    unless controller_counter = Rails.cache.fetch(:controller_counter)
+      puts "No controller usage recorded\n"
+      exit
+    end
+
     start = controller_counter.delete(:start)
-    puts "\nSince#{start.strftime('%e %b %Y %H:%M:%S%p')} the following controller hits have occured:\n\n"
+    puts "\nSince #{start.strftime('%e %b %Y %H:%M:%S%p')} the following controller hits have occured:\n\n"
 
     sorted_controllers = controller_counter.sort_by{|k,v| v}.reverse.to_h
     sorted_controllers.each do |controller, count|

@@ -11,6 +11,7 @@ module Streamliner
 
     rake_tasks do
       load 'streamliner/tasks/report.rake'
+      load 'streamliner/tasks/reset.rake'
     end
   end
 end
