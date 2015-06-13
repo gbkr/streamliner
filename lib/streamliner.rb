@@ -1,14 +1,10 @@
 require 'streamliner/version'
 require 'streamliner/counter'
+require 'streamliner/report'
 
 if defined?(Rails)
   require 'streamliner/railtie'
   require 'streamliner/controller_interceptor'
-end
-
-begin
-  require 'pry'
-rescue LoadError
 end
 
 module Streamliner
