@@ -15,7 +15,6 @@ module Streamliner
         add_header
         add_usage
         add_unused_code
-        report
       else
         no_data_message
       end
