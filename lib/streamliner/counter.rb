@@ -7,20 +7,21 @@ module Streamliner
 
     def initialize(controller, counter)
       @controller = controller
-      @counter = counter || {}
+      @counter = counter || Hash.new(0)
       ensure_start_date
     end
 
     def add
-      count = (counter.fetch(controller, 0) + 1)
-      counter[controller] = count
+      counter[controller] += 1
       counter
     end
 
     private
 
     def ensure_start_date
-      counter[:start] ||= DateTime.now
+      if counter[:start] == 0
+        counter[:start] = DateTime.now
+      end
     end
   end
 end

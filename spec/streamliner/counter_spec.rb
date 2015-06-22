@@ -12,7 +12,7 @@ module Streamliner
     end
 
     it 'counts controllers passed in' do
-      result = counter.new(params_hash_1, {}).add
+      result = counter.new(params_hash_1, nil).add
       result = counter.new(params_hash_1, result).add
       result = counter.new(params_hash_2, result).add
       result.delete(:start)
