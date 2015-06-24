@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Greg Baker"]
   spec.email         = ["gba311@gmail.com"]
   spec.summary       = %q{Identifies unused controllers in Rails applications.}
-  # spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Lightweight solution to measure controller usage in Rails applications with the aim of identifying unused controllers.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
