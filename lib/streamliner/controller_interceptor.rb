@@ -4,7 +4,7 @@ module Streamliner
   extend ActiveSupport::Concern
 
     included do
-      append_before_action :count_controller
+      append_before_filter :count_controller
     end
 
     def count_controller
