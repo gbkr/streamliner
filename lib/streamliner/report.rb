@@ -39,8 +39,8 @@ module Streamliner
 
     def add_header
       headers = ""
-      headers << "Controller".ljust(30)
-      headers << "Hits".ljust(10)
+      headers << "Controller".ljust(pleasing_spacing)
+      headers << "Hits".ljust(15)
       headers << "Percentage use\n"
       report << headers
       report << "-" * headers.chomp.length + "\n\n"
@@ -52,9 +52,13 @@ module Streamliner
 
     def add_usage
       sorted_controllers.each do |controller, count|
-        report << "#{controller.capitalize}".ljust(30) +
-          "#{count}".ljust(10) + "#{usage_percentage(count)}%\n"
+        report << "#{controller.capitalize}".ljust(pleasing_spacing) +
+          "#{count}".ljust(15) + "#{usage_percentage(count)}%\n"
       end
+    end
+
+    def pleasing_spacing
+      controller_list.map { |e| e.to_s.length }.max + 14
     end
 
     def usage_percentage count
@@ -68,7 +72,7 @@ module Streamliner
         no_usage = unused_controllers.map {|e| e.capitalize }
         report << (Array.method_defined?(:to_sentence) ? no_usage.to_sentence : no_usage.join(', '))
       else
-        report << "\nAll controllers were used and none are suggested for removal."
+        report << "\nAll controllers were used and none are suggested for removal.\n\n"
       end
     end
 
